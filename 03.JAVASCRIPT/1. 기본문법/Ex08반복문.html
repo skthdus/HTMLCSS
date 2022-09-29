@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //while문
+        var num = 1;
+        while(num<=10){
+            document.write(num);
+            num++;
+        }
+
+        //1~10까지 합
+        var sum ; //undefined 
+        for(let i=1; i<=10; i++){
+            //sum = sum+i;
+            sum += i;
+        }
+        console.log(sum); //Nan
+
+        for(let i =1; i<=10; i++){
+            document.write(i);
+        }
+
+        let num1 = Number(prompt("시작할 숫자를 입력해주세요."))
+        let num2 = Number(prompt("마지막 숫자를 입력해주세요."))
+        
+        var sum=0;
+        for(let i=num1; i<=num2; i++){
+             sum += i 
+        }
+
+        console.log(num1 + "부터 "+ num2 +"까지의 합>> " + sum) 
+    </script>
+</body>
+</html>

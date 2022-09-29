@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    let arr = [23,54,78,13,44];
+    let max = arr[0]; //내가 지금까지 본 값 중에 제일 큰수
+
+    for(var item of arr){
+        if(item > max){
+            max = item;
+        }
+    }
+    alert(max);
+    //Math.max(1,2,3)
+    console.log(Math.max.apply(null,arr));
+    
+
+   </script>
+</body>
+</html>

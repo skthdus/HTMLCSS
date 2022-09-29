@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 계층선택자 연습하기 */
+
+        /* 1. div태그를 기준으로 자손 선택자인 span 태그의 글자를 tomato */
+        /* 2. div태그를 기준으로 자손 선택자인 li 태그의 글자를 blue */
+        /* 3. ol태그를 기준으로 자식 선택자인 span 태그의 글자를 red */
+        /* 4. li태그를 기준으로 근접 후행 선택자인 li태그의 글자를 green */
+        /* 5. li태그를 기준으로 후행 선택자인 li태그의 글자를 yellowgreen */
+
+        div span{
+            color:tomato;
+        }
+
+        div li{
+            color:blue;
+        }
+
+        ol>span{
+            color:red;
+        }
+
+        li+li{
+            color:green;
+        }
+
+        /* case 1) ID값을 부여해서 기준 선택자를 바꾸는 경우 */
+        /* #rule~li{
+            color:hotpink;
+        } */
+
+        /* case 2) :nth-child() */
+        li:nth-child(2) ~ li{
+            color:hotpink;
+        }
+
+
+        li~li{
+            color:yellowgreen;
+        }
+        /* > 기준이 되는 선택자는 포함X */
+
+    </style>
+</head>
+<body>
+    <div>
+        <strong>연수생 수칙</strong>
+        <ol>
+            <li>지각하지 않기</li>
+            <li id="rule">결석하지 않기</li>
+            <span>(불가피할 땐 꼭 담당연구원에게 미리 말하기)</span>
+            <li>복습하기</li>
+        </ol>
+    </div>
+</body>
+</html>

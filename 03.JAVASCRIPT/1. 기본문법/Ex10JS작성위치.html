@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 내부방식 -->
+    <script>
+        var a = 10;
+    </script>
+    <!-- 외부방식 -->
+    <!-- async : 브라우저가 렌더링을 하는 동안(html 파싱) 병렬로 js 다운로드 명령
+    js 다운로드가 완료되면 html 파싱 멈춤 -> 다운로드한 js 실행 
+    다운로드 받는 속도 절약할 수 있음, html 파싱이 잠깐 멈추기 때문에 페이지를 보는데 시간이 걸림,
+    내가 원하는 화면이 안 나올 수도 있음(파싱이 더 빨랐을 때) -->
+    <script async src="./Ex10.js"></script>
+
+    <!--모든 js파일이 다운로드되고 html 파싱 이후에 실행 -->
+    <script defer src="./Ex10.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 인라인방식 -->
+    <button onclick="ck()">클릭</button>
+    <button onmouseenter="alert('마우스올림!')">마우스올리기</button>
+    <button onmousewheel="alert('스크롤!')">스크롤내리기</button>
+
+    <!-- 내부방식 -->
+    <script>
+        var b = 10;
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var mark = prompt("기호를 입력하시오");
+        var rows = Number(prompt("몇 줄 출력할지 입력하시오"));
+
+        pyramid(mark,rows);
+
+        function pyramid(mark, rows){
+            for(let i=1; i<=rows; i++){ //몇줄
+                for(let j=1; j<=i; j++){ //줄 별로 이모지를 출력할 개수
+                    document.write(mark);
+                }
+                    document.write("<br>");
+            }
+        }
+        
+
+    </script>
+</body>
+</html>

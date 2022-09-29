@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let subNum = Number(prompt("과목 수 입력"));
+
+        let subName = [];
+        //subName에 입력한 과목명 추가(반복)
+        for(var i=1; i<=subNum; i++){
+            subName.push(prompt("과목명"));
+        }
+        let subScore = [];
+        let sum = 0; //총합 저장 변수
+        //subScore에 입력한 과목 점수 추가(반복)
+        for(var i=1; i<=subNum; i++){
+            var score = Number(prompt(subName[i-1]+"점수 입력"));
+            subScore.push(score); //입력한 값을 배열에 추가
+            sum += score; //총합
+        }
+
+        let avg = parseInt(sum/subNum); //평균
+
+        // console.log(subName);
+        // console.log(subScore);
+        // console.log(sum);
+        // console.log(avg);
+
+        document.write("<table border=1>");
+            document.write("<tr>")
+                for(var i = 1; i<=subNum; i++){
+                    document.write("<td>" + subName[i-1] + "</td>")
+                }
+                document.write("<td>총합</td>")
+                document.write("<td>평균</td>")
+            document.write("</tr>")
+
+            document.write("<tr>")
+                for(var i = 1; i<=subNum; i++){
+                    document.write("<td>" + subScore[i-1] + "</td>")
+                }
+                document.write("<td>"+sum+"</td>")
+                document.write("<td>"+avg+"</td>")
+            document.write("</tr>")
+        document.write("</table>");
+
+    </script>
+</body>
+</html>

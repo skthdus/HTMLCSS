@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let subNum = Number(prompt("과목 수를 입력해주세요"));
+        let subList = [];
+        let scoreList = [];
+        let sum = 0;
+        let avg = 0;
+
+        for(let i=1 ; i<=subNum; i++){
+           var sub = prompt("점수를 입력할 과목명을 입력해주세요 >> ")
+           subList[i-1]=sub;
+        }
+
+        for(let i=1 ; i<=subNum; i++){
+            var score = Number(prompt(subList[i-1] + "의 점수 입력 >> "));
+            scoreList[i-1] = score;
+            sum+=score;
+        }
+
+        // for(let i=1; i<=subNum; i++){
+        //     document.write(subList[i-1] + " : " + scoreList[i-1] + " ");
+        // }
+
+        // document.write("총합 : " + sum +" 평균 : "+sum/subNum);
+
+      
+        document.write("<table border='1px solid black' >")
+
+            document.write("<tr align='center'>")
+                for(let i=1; i<=subNum; i++){
+                document.write("<th align='center'>")
+                    document.write(subList[i-1])
+                document.write("</th>")
+                }
+                document.write("<th align='center'>")
+                    document.write("총합")
+                document.write("</th>")
+                document.write("<th align='center'>")
+                    document.write("평균")
+                document.write("</th>")
+                document.write("</tr>")
+
+                document.write("<tr align='center'>")
+                for(let i=1; i<=subNum; i++){
+                document.write("<td>")
+                    document.write(scoreList[i-1])
+                document.write("</td>")
+                }
+               
+                document.write("<td align='center'>")
+                    document.write(sum)
+                document.write("</td>")
+               
+                document.write("<td align='center'>")
+                    document.write(sum/subNum)
+                document.write("</td>")
+                document.write("</tr>")
+
+                document.write("</table>")
+
+        
+        
+
+   
+
+    </script>
+</body>
+</html>

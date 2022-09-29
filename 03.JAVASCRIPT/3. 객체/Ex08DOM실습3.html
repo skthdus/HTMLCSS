@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>오늘 스케줄</h2>
+    <ul>
+        <li>1~2교시 : html/css 시험</li>
+        <li>3~4교시 : javascript 수업</li>
+        <li>
+            <h2>오늘 점심은 무엇?</h2>
+            <ol>
+                <li>행복한 담벼락 - 크림뚝불</li>
+                <li>삼류라멘 - 바질라멘</li>
+                <li>시바카레 - 새우크림카레</li>
+            </ol>
+        </li>
+        <li>5~8교시 : jsp/servlet 수업</li>
+    </ul>
+
+    <script>
+        //현재 ol > li 여러 개인 상태
+        //querySelector : 선택한 요소가 여러 개라면 첫번째만 선택됨
+        let li = document.querySelector("ol>li");
+        li.style.color = "green";
+
+        //querySelectorAll : 여러 개의 요소를 한번에 가지고 올 수 있음
+        // -> NodeList : 유사배열 (인덱스, length(길이))
+        let li2 = document.querySelectorAll("ol>li");
+
+        console.log(li);
+        console.log(li2);
+
+        for(var i=0; i<li2.length; i++){
+            li2[i].style.color = "green"
+        }
+
+    </script>
+</body>
+</html>

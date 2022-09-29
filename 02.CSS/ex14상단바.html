@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            background-color: whitesmoke;
+            height: 80px;
+
+            display: flex;
+            flex-direction: row;
+
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+          /* .container div{  */
+            /* 현재 영역을 확인하기 위한 임의의 세팅 */
+            /* border: 1px solid black;  */
+         /* }     */
+
+        
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+        .first-box{
+            text-align: left;
+        }
+        .second-box{
+            text-align: center;
+
+        }
+        .third-box{
+            text-align: right;
+        }
+        
+        .second-box :hover {
+            background-color: black;
+            color: white;
+        }
+
+        .third-box :hover {
+            background-color: black;
+            color: yellow;   
+        }
+
+        #item1{flex-grow: 1;}
+        #item2{flex-grow: 2;}
+        #item3{flex-grow: 1;}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="first-box" id="item1">
+            <h2>seonzeroticket</h2>
+        </div>
+
+        <div class="second-box" id="item2">
+            <a href="#">Menu</a>
+            <a href="#">Best</a>
+            <a href="#">Event</a>
+        </div>
+        
+        <div class="third-box" id="item3">
+            <a href="#">로그인</a>
+            <a href="#">회원가입</a>
+        </div>
+    </div>
+</body>
+</html>

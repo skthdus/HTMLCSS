@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <p>로그인 폼을 작성해봅시다</p>
+    <button id="btnP">p태그 다루기</button>
+    <div id="div1">
+        <h1 class="h">로그인폼</h1>
+        ID : <input type="text" name="id"><br>
+        PW : <input type="text" name="pw">
+    </div>
+    <p class="h"></p>
+    <button id="btnDiv">div태그 다루기</button>
+    <button id="btnH">클래스가 h인 태그 다루기</button>
+    <button id="addAttr">id input 속성 추가</button>
+    <button id="getId_Pw">input태그 다루기</button>
+
+    <script>
+        $("#btnP").click(function(){ //클릭이벤트 추가
+            let p = $("p").text(); //text == innerText
+                                   //html == innerHTML
+            //alert(p);
+            $("p").html("<i>p태그</i> 텍스트 바꾸기");
+        });
+
+        $("#btnDiv").click(function(){
+            $("#div1").css("background-color","pink");
+        });
+
+        $("#btnH").click(function(){
+            $(".h").text("클래스가 h인 태그!");
+            //this : 이벤트가 발생된 요소
+            $(this).text("바꾸기!");
+        });
+
+        $("#addAttr").click(function(){
+            //attr : 요소의 속성에 접근
+            //attr(속성이름, 속성값) : 속성을 추가(변경)
+            //attr(속성이름) : 속성 값 가져오기
+            $("input[name=id]").attr("placeholder","ID를 작성하시오");
+            alert($("input[name=id]").attr("type"))
+        });
+        
+        $("#getId_Pw").click(function(){
+            //val() == value
+            let id = $("input[name=id]").val();
+            let pw = $("input[name=pw]").val();
+            alert("아이디 : " + id + " 비밀번호 : " + pw);
+
+            $("input[name=pw]").val("비밀번호");
+        })
+    </script>
+
+</body>
+</html>

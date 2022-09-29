@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>클릭 한번 해볼까요?</h1>
+    <button onclick="mkH1()">h1태그 생성</button>
+    <button onclick="mkA()">a태그 생성</button>
+    <button onclick="mkUl()">ul태그 생성</button>
+
+    <div id="div1"></div>
+
+    <script>
+        function mkH1(){
+           let h1 = document.getElementById('div1');
+           h1.innerHTML += "<h1> DOM 활용하기</h1>";
+
+        }
+
+        function mkA() {
+            let a = document.getElementById('div1');
+            a.innerHTML += "<a href='https://www.google.com'> Google로 이동 </a>";
+        }
+
+         function mkUl(){
+            let u1 = document.getElementById('div1');
+            u1.innerHTML += "<ul><li>HTML</li><li>CSS</li><li>JS</li></ul>";
+        }
+    </script>
+</body>
+</html>

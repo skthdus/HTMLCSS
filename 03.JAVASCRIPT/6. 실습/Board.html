@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+        integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+        crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'KOTRALEAP';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRALEAP.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'KOTRALEAP';
+            background-image: url('asset/img/bg.jpg');
+            padding-left: 200px;
+            padding-right: 200px;
+        }
+
+        .card-body {
+            background-color: whitesmoke;
+        }
+
+        p {
+            padding-top: 5px;
+            padding-left: 20px;
+            font-size: 30px;
+        }
+
+        img,
+        #map-wrap,
+        .list-group>li {
+            padding-left: 20px;
+            padding-top: 5px;
+        }
+
+        p>button {
+            border: 0px;
+        }
+
+        span+button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-body" style="margin-top: 100px; margin-bottom: 10px; height: 50px">
+        <p>게시물제목 / 작성자
+            <button class="like"><span class="material-symbols-outlined">heart_plus</span></button>
+            <button class="dislike"><span class="material-symbols-outlined">heart_minus</span></button>
+            <span>20</span>
+        </p>
+    </div>
+
+    <div class="card mb-2">
+        <div class="card-body">
+            <img alt="게시물사진" width="200px" height="200px" src="./asset/img/pg1.gif">
+            <p>게시물내용</p>
+            <div id="map-wrap">
+                <div id="map" style="width:100%;height:350px;"></div>
+
+            </div>
+            <ul class="list-group list-group-flush">
+                <li>댓글(<span class="com-cnt">0</span>)</li>
+                <li class="list-group-item">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <button type="button" class="btn btn-dark mt-3" onclick="addReply()">post reply</button>
+                </li>
+            </ul>
+            <ul class="list-group list-group-flush" id="reply">
+                <li class="list-group-item">
+                    <span>댓글내용/작성자</span>
+                    <button class="deleteBtn">삭제</button>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        //현재 페이지가 로드 되었을 때 게시물의 좋아요 개수가 적혀져 있는 요소 불러오기
+        let likeSp = document.querySelector("p>span"); //.dislike+span
+
+        document.getElementsByClassName("dislike")[0].style.display = "none";
+
+        //좋아요버튼 눌렀을 때
+        document.querySelector(".like").addEventListener("click", function () {
+            //좋아요버튼 안보이게
+            document.getElementsByClassName("like")[0].style.display = "none";
+            //document.querySelector(".like").style.display = "none";
+
+
+            //싫어요버튼 보이게
+            document.getElementsByClassName("dislike")[0].style.display = "inline";
+            //document.querySelector(".dislike").style.display="inline";
+
+
+            //span 태그 사이의 숫자 1증가 > likeSp.innerText = ++likeSp.innerText;
+            let likeNum = Number(likeSp.innerText);
+            likeSp.innerText = ++likeNum;
+
+            // let span = document.getElementById('span');
+            // let spanNum = Number(span.innerText);
+            // spanNum++;
+            // span.innerText = spanNum;
+        })
+
+        //싫어요 기능
+        document.querySelector(".dislike").addEventListener("click", function () {
+            //싫어요버튼 안 보이게
+            document.getElementsByClassName("dislike")[0].style.display = "none";
+            // document.querySelector(".dislike").style.display = "none"
+
+            //좋아요버튼 보이게
+            document.getElementsByClassName("like")[0].style.display = "inline";
+            // document.querySelector(".dislike").style.display = "none"
+
+            //span태그 사이의 숫자 1감소 likeSp.innerText = --likeSp.innerText;
+            let likeNum = Number(likeSp.innerText);
+            likeSp.innerText = --likeNum;
+        })
+
+        let comCnt = document.getElementsByClassName("com-cnt")[0];
+        //댓글작성
+        function addReply() {
+            let com = document.getElementsByTagName("textarea")[0];
+            //<li class="list-group-item">
+            //  <span>댓글내용/작성자</span>
+            //  <button class="deleteBtn">삭제</button>
+            //</li>
+
+            let com_li = document.createElement("li"); //댓글 형식을 구성하는 li태그 생성 <li></li>
+            com_li.className = "list-group-item";
+
+            let com_sp = document.createElement("span"); //li태그 내에 추가해야 하는 span 태그 생성
+            com_sp.appendChild(document.createTextNode(com.value + "/작성자")); //span에 텍스트 요소 추가
+            com_li.appendChild(com_sp); //li태그에 span 태그 자식요소로 추가
+
+            let com_btn = document.createElement("button"); //li태그 내에 추가해야하는 button태그 생성
+            com_btn.className = "deleteBtn";
+            com_btn.appendChild(document.createTextNode("삭제"));
+            com_li.appendChild(com_btn);
+
+            //append : 뒤에추가, prepend : 앞에추가
+            document.getElementById("reply").prepend(com_li);
+
+            //댓글창 비우기
+            com.value = "";
+
+            //댓글 갯수 1씩 증가
+            comCnt.innerText = ++comCnt.innerText;
+        }
+
+        //삭제 버튼 클릭 시 해당 댓글만 삭제
+        //html 최초에 로드되었을 때 존재했던 요소들에게만 이벤트를 추가
+        // document.querySelector('.deleteBtn').addEventListener('click', function(){
+        //     this.parentNode.remove(); //>parentNode:부모 찾아감
+        // })
+
+        //#reply인 ul태그 사이에 동적으로 추가되는 li태그에 이벤트 부여
+        //e : 이벤트객체
+        document.querySelector("#reply").addEventListener("click", function (e) {
+            //e.target : 이벤트가 발생한 타겟 객체 (사용자가 클릭한 button)
+            console.log(e.target);
+            if (e.target.className == "deleteBtn") {
+                e.target.parentNode.remove();
+                comCnt.innerText == --comCnt.innerText;
+            }
+        })
+
+    </script>
+
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7c890570314ca7c22bb80e4ac170628b&libraries=services"></script>
+    <script>
+        // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+        var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+        // 지도를 생성합니다    
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+
+        // 장소 검색 객체를 생성합니다
+        var ps = new kakao.maps.services.Places();
+
+        // 키워드로 장소를 검색합니다
+        ps.keywordSearch('동명동 포카포카', placesSearchCB);
+
+        // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+        function placesSearchCB(data, status, pagination) {
+            if (status === kakao.maps.services.Status.OK) {
+
+                // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+                // LatLngBounds 객체에 좌표를 추가합니다
+                var bounds = new kakao.maps.LatLngBounds();
+
+                for (var i = 0; i < data.length; i++) {
+                    displayMarker(data[i]);
+                    bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+                }
+
+                // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+                map.setBounds(bounds);
+            }
+        }
+
+        // 지도에 마커를 표시하는 함수입니다
+        function displayMarker(place) {
+
+            // 마커를 생성하고 지도에 표시합니다
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: new kakao.maps.LatLng(place.y, place.x)
+            });
+
+            // 마커위에 마우스 올렸을 때 이벤트 > 클릭했을때 'click'
+            kakao.maps.event.addListener(marker, 'mouseover', function () {
+                // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+                infowindow.setContent('<div style="padding:5px;font-size:12px;"><img src="./asset/img/포카포카.jpg" width="200px" height="200px"></div>');
+                infowindow.open(map, marker);
+            });
+
+            //마커위에서 마우스를 내렸을 때 이벤트
+            kakao.maps.event.addListener(marker, 'mouseout', function () {
+                infowindow.close();
+            });
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //배열 생성 + 값 할당
+        let list1 = [1,2,3];
+        let list2 = new Array(1,2,3);
+
+        //배열 선언 후 값을 나중에 할당
+        let list3 = [];
+        list3[0] = 1;
+        list3[1]= 2;
+
+        //배열에 있는 값 확인
+        console.log(list2);
+        console.log(list2.length);
+
+        //배열함수
+        //push : 배열의 맨 마지막 인덱스에 데이터 추가
+        list3.push(3);
+        console.log(list3);
+        //pop : 배열의 맨 마지막 인덱스 데이터 삭제
+        list3.pop();
+        console.log(list3);
+        //unshift : 배열의 맨 앞 인덱스(0)에 데이터 추가
+        list3.unshift("추가데이터");
+        console.log(list3);
+        //shift : 배열의 맨 앞 인덱스(0) 데이터 삭제
+        list3.shift();
+        console.log(list3);
+
+        //배열 안에 값 출력
+        //1.  forEach문 : Array객체에서만 사용
+        //callbackfn(콜백함수) : 함수의 인수로 사용되는 함수
+        list1.forEach(function(item){
+            //item : list1(배열) 안에 0번인덱스에 있는 값부터 차근차근 저장
+            console.log(item);
+        })
+
+        //2. for~in 문 : Object 에서 사용
+        for(var item in list1){
+            console.log(item); //객체의 key값 
+            console.log(list1[item]); //key와 매칭되는 실제 값
+        }
+
+        //3. for~of 문 : Object 에서 사용
+        for(var item of list1){
+            console.log(item);
+        }
+
+    </script>
+</body>
+</html>

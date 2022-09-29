@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //전화번호 체크 정규표현식
+        let regPhone = /^01([0|1])-?([0-9]{4})-?([0-9]{4})$/;
+
+        let phone = '010-5000-5000';
+        
+        //console.log(regPhone.test(phone));
+        if(regPhone.test(phone)==true){
+            console.log("맞는 형식");
+        } else{
+            console.log("틀린 형식");
+        }
+    
+    </script>
+</body>
+</html>

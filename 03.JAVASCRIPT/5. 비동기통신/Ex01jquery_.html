@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="movieTB"></div>
+    <button onclick="req()">요청</button>
+
+    <script>
+        function req(){
+            $.ajax({
+                //어디로 요청할건지
+                url : "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20220901",
+                //어떻게 요청할건지(요청방식-get/post/put/delete)
+                //type 속성은 기본값이 get
+                type : "get",
+                //요청-응답 성공했을 때 수행할 작업
+                success : function(data){
+                    //응답받은 데이터를 테이블 형식으로
+                    //#movieTB DIV영역에 출력
+                    let movieList = data.boxOfficeResult.dailyBoxOfficeList;
+
+                    for(var i=0; i<movieList.length; i++){
+                        console.log(movieList[i].rank);
+                        console.log([i].movieNm);
+                        console.log(movieList[i].openDt);
+                    }
+
+                    let str = `<table border=1>`;
+                    str += `<tr>`;
+                    str += `<th>순위</th>`;
+                    str += `<th>영화제목</th>`;
+                    str += `<th>개봉일자</th>`;
+                    str += `</tr>`;
+                    for(var i=0; i<movieList.length; i++){
+                        str += `<tr>`;
+                        str += `<td>${movieList[i].rank}</td>`;
+                        str += `<td>${movieList[i].movieNm}</td>`;
+                        str += `<td>${movieList[i].openDt}</td>`;
+                        str += `</tr>`;
+                        }
+                    str += `</table>`;
+
+                    $("#movieTB").html(str);
+
+                },
+                //요청-응답 실패했을 때 수행할 작업
+                error : function(){
+                    alert("실패!");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

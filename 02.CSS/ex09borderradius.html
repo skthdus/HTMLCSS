@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+
+            /* border-radius : 테두리를 둥글게
+            
+            border - 위/아래 - 왼/오 - radius
+            => 특정 모서리만 둥글게
+            */
+
+            /* 1. 위쪽 왼쪽 둥글게 */
+            border-top-left-radius: 10px;
+
+            /* 2. 아래쪽 왼쪽 둥글게 */
+            border-bottom-left-radius: 10%;
+
+            /* 3. 위쪽 오른쪽 둥글게 */
+            border-top-right-radius: 20px;
+
+            /* 4. 아래쪽 오른쪽 둥글게 */
+            border-bottom-right-radius: 20%;
+
+            /* 완전한 원으로 만들고자 할 때 */
+            border-radius: 50%;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>

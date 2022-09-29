@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id="span1">0</span>
+    <br>
+    <!-- span 태그 사이의 숫자가 1씩 증가하는 버튼 -->
+    <button onclick="plus()">+1증가</button>
+    <!-- span 태그 사이의 숫자가 1씩 감소하는 버튼 -->
+    <!-- 감소 기능 작성 후 -> 0미만으로 감소하지 않도록 기능 추가 -->
+    <button onclick="minus()">-1감소</button>
+
+    <script>
+
+        let span1 = document.getElementById('span1');
+
+        function plus(){
+            span1.innerText++;  
+        }
+
+        function minus(){
+            span1.innerText--;
+
+            if(span1.innerText<=0){
+                span1.innerText=0;
+            }
+        }
+
+    </script>
+</body>
+</html>

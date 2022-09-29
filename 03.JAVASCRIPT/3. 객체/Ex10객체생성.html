@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //사용자 정의 객체
+        //객체 생성 (property(속성) - key:value)
+        //JSON (JavaScript Object Notation) : 데이터를 표현하기 위한 표준 형태
+        let person = {
+            name : "채수민",
+            subject : "자바",
+            age : 20,
+            skill : function(){
+                alert("수민스킬!!!")
+            }
+        }
+
+        let person2 = {}; //비어있는 객체생성
+        person2.name = "선영표";
+        person2.skill = function(){
+            alert("영표스킬!");
+        }
+
+        document.write(person2.name);
+        person2.skill();
+
+    </script>
+</body>
+</html>

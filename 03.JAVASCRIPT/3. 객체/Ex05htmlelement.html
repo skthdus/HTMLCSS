@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id = "p1"><b>Hello</b>, JS!</p>
+
+    <span>가</span>
+    <span class="c1">나</span>
+    <span>다</span>
+
+    <br>
+
+    <h1></h1>
+    <h1 class="c1"></h1>
+
+    <br>
+
+    <input type="checkbox" name="subject" value="자바">자바
+    <input type="checkbox" name="subject" value="안드">안드로이드
+    <input type="checkbox" name="subject" value="웹">웹
+    
+    <input type="text" name="subject">
+    <textarea name="subject" id="ta"></textarea>
+
+    <div id="tt"></div>
+
+    <button onclick="getId()">ID가 p1인 태그 접근</button>
+    <button onclick="getSpan()">Span태그 접근</button>
+    <button onclick="getClass()">class가 c1인 태그 접근</button>
+    <button onclick="getName()">name이 subject인 태그 접근</button>
+
+    <script>
+        function getId(){
+            //id가 p1인 요소에 접근
+            //getElementById
+            let p1 = document.getElementById('p1');
+            console.log(p1);
+            //innerHTML : 태그사이에 있는 모든 요소 가지고 오기
+            //                           (텍스트 + 태그) 
+            console.log(p1.innerHTML);
+            //innerText : 태그사이에 있는 모든 텍스트요소 가지고 오기
+            console.log(p1.innerText);
+        }
+
+        function getSpan(){
+            let spans = document.getElementsByTagName('span');
+            console.log(spans);
+            
+            for(var i=0; i<spans.length; i++){
+                console.log(spans[i].innerText);
+            }
+        }
+
+        let getClass = () => {
+            let c1 = document.getElementsByClassName('c1');
+            console.log(c1);
+            for(var i=0; i<c1.length; i++){
+                //텍스트요소만 추가
+                //c1[i].innerText = "<u>클래스로 접근!</u>";
+                //텍스트+태그 요소도 추가 가능
+                c1[i].innerHTML = "<u>클래스로 접근!</u>";
+            }
+        } 
+
+        function getName(){
+            var sub = document.getElementsByName('subject');
+            console.log(sub);
+            for(var i=0; i<sub.length; i++){
+                //form태그 내의 사용자 입력한(선택한) 값을 가지고 오고 싶을 때 value를 사용!!
+                console.log(sub[i].value);
+
+            }
+            var ta = document.getElementById('ta');
+            ta.value = "텍스트추가!";
+        }
+    </script>
+
+</body>
+</html>

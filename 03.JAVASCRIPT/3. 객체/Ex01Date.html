@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //현재 시간, 날짜
+        let day = new Date();
+        console.log(day);
+
+        let t_year = day.getFullYear(); //년도
+        let t_month = day.getMonth()+1; //월(0~11)
+        let t_date = day.getDate(); //일
+        let t_day = day.getDay(); //요일 (0(일) ~ 6(토))
+
+        if(t_day==5){
+            t_day = "금";
+        }
+
+        console.log(t_year + "년" + t_month + "월" + t_date + "일" + t_day + "요일")
+
+        let hour = day.getHours(); //시
+        let min= day.getMinutes(); //분
+        let sec = day.getSeconds(); //초
+
+        console.log(hour + "시" + min + "분" + sec + "초")
+
+
+    </script>
+</body>
+</html>

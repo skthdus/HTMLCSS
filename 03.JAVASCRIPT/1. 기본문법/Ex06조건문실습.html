@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //반환값 -> String
+        let java = prompt("Java점수를 입력하세요."); 
+        //let num = Number(java); = Number(prompt("Java점수"))
+        let android = prompt("Android점수를 입력하세요.");
+        let web = prompt("Web점수를 입력하세요.");
+
+        let avg = parseInt((parseInt(java)+parseInt(android)+parseInt(web))/3);
+        //let total = parseInt((parseInt(java)+parseInt(android)+parseInt(web))
+        //let avg = (total/3).toFixed(2); > 소수점 두번째자리까지
+
+        let score;
+        if(avg>=90){
+            score = "A";
+        } else if(avg>=80){
+            score= "B";
+        } else if(avg>=70){
+            score = "C";
+        } else{
+            score = "F"
+        }
+
+        console.log("당신의 평균은 "+ avg +"이고 학점은 "+ score +"입니다.")
+        
+    </script>
+</body>
+</html>
